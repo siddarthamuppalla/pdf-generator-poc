@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pdf-generator-poc
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: mypassword
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+  flyway: #flyway automatically uses the datasource from the application to connect to the DB
+    enabled: true # enables flyway database migration
+    locations: classpath:db/migration/structure, classpath:db/migration/data  # the location where flyway should look for migration scripts
+    validate-on-migrate: true
+    default-schema: consumer
+    url: jdbc:postgresql://localhost:5432/mydatabase
