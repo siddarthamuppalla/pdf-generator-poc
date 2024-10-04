@@ -10,10 +10,21 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
+cloud:
+  aws:
+    region: ${AWS_REGION:us-east-1}
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
 
-  flyway: #flyway automatically uses the datasource from the application to connect to the DB
-    enabled: true # enables flyway database migration
-    locations: classpath:db/migration/structure, classpath:db/migration/data  # the location where flyway should look for migration scripts
-    validate-on-migrate: true
-    default-schema: consumer
-    url: jdbc:postgresql://localhost:5432/mydatabase
+application:
+  bucket:
+    name: pdf-gen-test-utah
+
+
+#  flyway: #flyway automatically uses the datasource from the application to connect to the DB
+#    enabled: true # enables flyway database migration
+#    locations: classpath:db/migration/structure, classpath:db/migration/data  # the location where flyway should look for migration scripts
+#    validate-on-migrate: true
+#    default-schema: consumer
+#    url: jdbc:postgresql://localhost:5432/mydatabase

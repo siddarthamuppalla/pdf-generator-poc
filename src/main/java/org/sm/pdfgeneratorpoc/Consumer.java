@@ -3,13 +3,17 @@ package org.sm.pdfgeneratorpoc;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "consumer")
+@Data
+@RequiredArgsConstructor
 public class Consumer {
     @Id
     private long id;
